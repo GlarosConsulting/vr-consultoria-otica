@@ -1,0 +1,392 @@
+import { MigrationInterface, QueryRunner, TableColumn } from 'typeorm';
+
+export class AddNewFieldsToInspectionTable1611242941034
+  implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.addColumns('inspections', [
+      new TableColumn({
+        name: 'forward_left_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_right_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_left_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_right_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_right_with_opened_hood_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_left_with_opened_hood_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_with_opened_hood_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_plate_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'opened_trunk_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'seal_plate_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'spare_tire_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'key_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_right_wheel_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_left_wheel_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_left_wheel_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_right_wheel_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'left_column_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'right_column_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'pedometer_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_right_tire_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_left_tire_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_right_tire_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_left_tire_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'console_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'engine_number_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_right_buffer_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_left_buffer_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_right_buffer_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_left_buffer_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+    ]);
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropColumns('inspections', [
+      new TableColumn({
+        name: 'forward_left_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_right_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_left_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_right_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_right_with_opened_hood_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_left_with_opened_hood_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_with_opened_hood_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_plate_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'opened_trunk_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'spare_tire_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'key_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_glass_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_glass_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_right_glass_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_left_glass_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_left_glass_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_right_glass_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_right_wheel_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_left_wheel_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_left_wheel_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_right_wheel_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'left_column_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'right_column_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'pedometer_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_right_tire_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_left_tire_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_right_tire_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_left_tire_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'console_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'engine_number_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_right_buffer_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'forward_left_buffer_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_right_buffer_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+      new TableColumn({
+        name: 'rear_left_buffer_img',
+        type: 'varchar',
+        isUnique: true,
+        isNullable: true,
+      }),
+    ]);
+  }
+}
