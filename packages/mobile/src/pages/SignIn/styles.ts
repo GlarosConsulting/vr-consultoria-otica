@@ -21,17 +21,12 @@ export const FormContainer = styled.View`
   align-items: center;
 `;
 
-export const LogoImage = styled.Image`
-  margin-top: 8px;
-  margin-bottom: 24px;
-`;
-
 export const ForgotPassword = styled.TouchableOpacity`
   margin-top: 24px;
 `;
 
 export const ForgotPasswordText = styled.Text`
-  color: #fff;
+  color: #333;
   font-size: 16px;
 `;
 

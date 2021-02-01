@@ -12,7 +12,6 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/mobile';
 import * as Yup from 'yup';
 
-import logoImg from '../../assets/logo.png';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import SocialButton from '../../components/SocialButton';
@@ -22,7 +21,6 @@ import getValidationErrors from '../../utils/getValidationError';
 import {
   Container,
   FormContainer,
-  LogoImage,
   ForgotPassword,
   ForgotPasswordText,
   SocialButtonsContainer,
@@ -81,51 +79,47 @@ const SignIn: React.FC = () => {
         keyboardShouldPersistTaps="handled"
       >
         <Container>
-          <FormContainer>
-            <LogoImage source={logoImg} />
+          <Form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            css={{
+              width: '100%',
+            }}
+          >
+            <Input
+              autoCorrect={false}
+              autoCapitalize="none"
+              placeholder="E-mail"
+              keyboardType="email-address"
+              name="email"
+              icon="mail"
+              returnKeyType="next"
+            />
 
-            <Form
-              ref={formRef}
-              onSubmit={handleSubmit}
-              style={{
-                width: '100%',
+            <Input
+              secureTextEntry
+              placeholder="Senha"
+              name="password"
+              icon="lock"
+              textContentType="newPassword"
+              returnKeyType="send"
+              onSubmitEditing={() => {
+                formRef.current?.submitForm();
+              }}
+            />
+
+            <Button
+              onPress={() => {
+                formRef.current?.submitForm();
               }}
             >
-              <Input
-                autoCorrect={false}
-                autoCapitalize="none"
-                placeholder="E-mail"
-                keyboardType="email-address"
-                name="email"
-                icon="mail"
-                returnKeyType="next"
-              />
+              Entrar
+            </Button>
+          </Form>
 
-              <Input
-                secureTextEntry
-                placeholder="Senha"
-                name="password"
-                icon="lock"
-                textContentType="newPassword"
-                returnKeyType="send"
-                onSubmitEditing={() => {
-                  formRef.current?.submitForm();
-                }}
-              />
-
-              <Button
-                onPress={() => {
-                  formRef.current?.submitForm();
-                }}
-              >
-                Entrar
-              </Button>
-            </Form>
-
-            <ForgotPassword onPress={() => navigate('ForgotPassword')}>
-              <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
-            </ForgotPassword>
-          </FormContainer>
+          <ForgotPassword onPress={() => navigate('ForgotPassword')}>
+            <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+          </ForgotPassword>
 
           <SocialButtonsContainer>
             <SocialButton
