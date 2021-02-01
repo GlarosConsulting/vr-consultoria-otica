@@ -50,13 +50,12 @@ export const AuthProvider: React.FC = ({ children }) => {
 
         await AsyncStorage.removeItem('@VRConsultoriaOtica:user');
       } else {
-        const reference = await firebaseApp
-          .database()
-          .ref(`users/${updatedUser.uid}`)
-          .toJSON()
-          .toString();
-
-        const data = JSON.parse(reference);
+        const data = await new Promise<any>(resolve =>
+          firebaseApp
+            .database()
+            .ref(`users/${updatedUser.uid}`)
+            .on('value', snapshot => resolve(snapshot.val())),
+        );
 
         const newUser: IUser = {
           data: updatedUser,
@@ -177,15 +176,14 @@ export const AuthProvider: React.FC = ({ children }) => {
       setLoading(true);
 
       const result = await Google.logInAsync({
-        behavior: 'web',
         androidClientId:
           '878039305622-bfhpm7ejedpvdvblcj88rrt3min56dbp.apps.googleusercontent.com',
         iosClientId:
-          '878039305622-jr0p24ndi5jha5s4r4cdijfi1eife5c6.apps.googleusercontent.com',
+          '824008646225-sa1qtdsrghqm778bk8hn1lek11sisd21.apps.googleusercontent.com',
         scopes: ['profile', 'email'],
       });
 
-      await onSignIn(result);
+      onSignIn(result);
     } catch (err) {
       Alert.alert('Ocorreu um erro', JSON.stringify(err));
     } finally {
