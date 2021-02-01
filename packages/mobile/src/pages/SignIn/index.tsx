@@ -79,49 +79,47 @@ const SignIn: React.FC = () => {
         keyboardShouldPersistTaps="handled"
       >
         <Container>
-          <FormContainer>
-            <Form
-              ref={formRef}
-              onSubmit={handleSubmit}
-              css={{
-                width: '100%',
+          <Form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            css={{
+              width: '100%',
+            }}
+          >
+            <Input
+              autoCorrect={false}
+              autoCapitalize="none"
+              placeholder="E-mail"
+              keyboardType="email-address"
+              name="email"
+              icon="mail"
+              returnKeyType="next"
+            />
+
+            <Input
+              secureTextEntry
+              placeholder="Senha"
+              name="password"
+              icon="lock"
+              textContentType="newPassword"
+              returnKeyType="send"
+              onSubmitEditing={() => {
+                formRef.current?.submitForm();
+              }}
+            />
+
+            <Button
+              onPress={() => {
+                formRef.current?.submitForm();
               }}
             >
-              <Input
-                autoCorrect={false}
-                autoCapitalize="none"
-                placeholder="E-mail"
-                keyboardType="email-address"
-                name="email"
-                icon="mail"
-                returnKeyType="next"
-              />
+              Entrar
+            </Button>
+          </Form>
 
-              <Input
-                secureTextEntry
-                placeholder="Senha"
-                name="password"
-                icon="lock"
-                textContentType="newPassword"
-                returnKeyType="send"
-                onSubmitEditing={() => {
-                  formRef.current?.submitForm();
-                }}
-              />
-
-              <Button
-                onPress={() => {
-                  formRef.current?.submitForm();
-                }}
-              >
-                Entrar
-              </Button>
-            </Form>
-
-            <ForgotPassword onPress={() => navigate('ForgotPassword')}>
-              <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
-            </ForgotPassword>
-          </FormContainer>
+          <ForgotPassword onPress={() => navigate('ForgotPassword')}>
+            <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+          </ForgotPassword>
 
           <SocialButtonsContainer>
             <SocialButton

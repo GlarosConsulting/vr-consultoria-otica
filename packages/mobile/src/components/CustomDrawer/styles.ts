@@ -11,7 +11,7 @@ export const Container = styled.View`
 
 export const DrawerHeader = styled.View`
   border-bottom-width: 1px;
-  border-bottom-color: #080e33;
+  border-bottom-color: #333;
   padding-bottom: 4px;
 
   flex-direction: row;
@@ -21,13 +21,13 @@ export const DrawerHeader = styled.View`
 
 export const DrawerHeaderTitle = styled.Text`
   font-size: 22px;
-  color: #080e33;
+  color: #333;
   font-weight: bold;
 `;
 
 export const DrawerHeaderVersion = styled.Text`
   font-size: 10px;
-  color: #080e33;
+  color: #333;
   margin-bottom: 2.5px;
 `;
 
@@ -43,7 +43,7 @@ export const MenuContainer = styled.View`
 
 export const MenuItemContainer = styled.View`
   border-top-width: 1px;
-  border-top-color: #12162b;
+  border-top-color: #333;
 `;
 
 export const MenuItemLabelContainer = styled.TouchableOpacity`

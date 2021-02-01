@@ -26,7 +26,7 @@ export const ForgotPassword = styled.TouchableOpacity`
 `;
 
 export const ForgotPasswordText = styled.Text`
-  color: #fff;
+  color: #333;
   font-size: 16px;
 `;
 
