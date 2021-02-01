@@ -41,7 +41,7 @@ const CustomDrawer = ({ user, signOut }: IAuthContextData) => ({
           <DrawerHeaderVersion>Versão 1.0.0</DrawerHeaderVersion>
         </DrawerHeader>
 
-        <UserNameText>{user?.displayName}</UserNameText>
+        <UserNameText>{user?.data.displayName}</UserNameText>
 
         <MenuContainer>
           <MenuItemContainer>
@@ -59,26 +59,6 @@ const CustomDrawer = ({ user, signOut }: IAuthContextData) => ({
               activeOpacity={0.5}
               onPress={() => navigate('Home')}
             >
-              <Feather name="edit" size={16} />
-              <MenuItemText>Meus dados</MenuItemText>
-            </MenuItemLabelContainer>
-          </MenuItemContainer>
-
-          <MenuItemContainer>
-            <MenuItemLabelContainer
-              activeOpacity={0.5}
-              onPress={() => navigate('Home')}
-            >
-              <Feather name="mail" size={16} />
-              <MenuItemText>Mensagens</MenuItemText>
-            </MenuItemLabelContainer>
-          </MenuItemContainer>
-
-          <MenuItemContainer>
-            <MenuItemLabelContainer
-              activeOpacity={0.5}
-              onPress={() => navigate('Home')}
-            >
               <Feather name="dollar-sign" size={16} />
               <MenuItemText>Financeiro</MenuItemText>
             </MenuItemLabelContainer>
@@ -87,20 +67,10 @@ const CustomDrawer = ({ user, signOut }: IAuthContextData) => ({
           <MenuItemContainer>
             <MenuItemLabelContainer
               activeOpacity={0.5}
-              onPress={() => navigate('Inspection')}
+              onPress={() => navigate('Home')}
             >
-              <Feather name="image" size={16} />
-              <MenuItemText>Vistoria</MenuItemText>
-            </MenuItemLabelContainer>
-          </MenuItemContainer>
-
-          <MenuItemContainer>
-            <MenuItemLabelContainer
-              activeOpacity={0.5}
-              onPress={() => navigate('DetailedInspection')}
-            >
-              <Feather name="image" size={16} />
-              <MenuItemText>Vistoria detalhada</MenuItemText>
+              <Feather name="package" size={16} />
+              <MenuItemText>Estoque</MenuItemText>
             </MenuItemLabelContainer>
           </MenuItemContainer>
 
@@ -109,7 +79,27 @@ const CustomDrawer = ({ user, signOut }: IAuthContextData) => ({
               activeOpacity={0.5}
               onPress={() => navigate('Home')}
             >
-              <Feather name="align-left" size={16} />
+              <Feather name="tag" size={16} />
+              <MenuItemText>Vendas</MenuItemText>
+            </MenuItemLabelContainer>
+          </MenuItemContainer>
+
+          <MenuItemContainer>
+            <MenuItemLabelContainer
+              activeOpacity={0.5}
+              onPress={() => navigate('Home')}
+            >
+              <Feather name="file-text" size={16} />
+              <MenuItemText>Tarefas</MenuItemText>
+            </MenuItemLabelContainer>
+          </MenuItemContainer>
+
+          <MenuItemContainer>
+            <MenuItemLabelContainer
+              activeOpacity={0.5}
+              onPress={() => navigate('Inspection')}
+            >
+              <Feather name="edit-3" size={16} />
               <MenuItemText>Termos e condições</MenuItemText>
             </MenuItemLabelContainer>
           </MenuItemContainer>

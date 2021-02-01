@@ -87,7 +87,7 @@ const SignIn: React.FC = () => {
             <Form
               ref={formRef}
               onSubmit={handleSubmit}
-              style={{
+              css={{
                 width: '100%',
               }}
             >
