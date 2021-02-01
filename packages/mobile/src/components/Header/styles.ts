@@ -1,9 +1,10 @@
+import { Platform } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 export const Container = styled.View`
-  background: #344c66;
+  background: #e5e5e5;
   min-height: 64px;
 
   flex-direction: row;
@@ -11,7 +12,12 @@ export const Container = styled.View`
   align-items: center;
 
   padding: 16px;
-  padding-top: ${24 + getStatusBarHeight()}px;
+
+  ${() =>
+    Platform.OS === 'ios' &&
+    css`
+      padding-top: ${24 + getStatusBarHeight()}px;
+    `}
 `;
 
 export const Left = styled.View`
@@ -19,14 +25,7 @@ export const Left = styled.View`
   align-items: center;
 `;
 
-export const LogoImage = styled.Image`
-  width: 80px;
-  height: 40px;
-
-  margin-left: 20px;
-`;
-
 export const UserLabel = styled.Text`
-  color: #fff;
+  color: #333;
   font-size: 17px;
 `;

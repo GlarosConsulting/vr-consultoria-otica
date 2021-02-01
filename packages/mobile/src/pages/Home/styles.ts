@@ -10,7 +10,7 @@ export const ContactButtonContainer = styled.TouchableOpacity`
   position: absolute;
   bottom: 0;
 
-  background: #344c66;
+  background: #e5e5e5;
   width: 100%;
   min-height: 56px;
 
@@ -21,6 +21,6 @@ export const ContactButtonContainer = styled.TouchableOpacity`
 `;
 
 export const ContactButtonText = styled.Text`
-  color: #fff;
+  color: #333;
   font-size: 20px;
 `;

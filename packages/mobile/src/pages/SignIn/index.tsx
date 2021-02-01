@@ -12,7 +12,6 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/mobile';
 import * as Yup from 'yup';
 
-import logoImg from '../../assets/logo.png';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import SocialButton from '../../components/SocialButton';
@@ -22,7 +21,6 @@ import getValidationErrors from '../../utils/getValidationError';
 import {
   Container,
   FormContainer,
-  LogoImage,
   ForgotPassword,
   ForgotPasswordText,
   SocialButtonsContainer,
@@ -82,8 +80,6 @@ const SignIn: React.FC = () => {
       >
         <Container>
           <FormContainer>
-            <LogoImage source={logoImg} />
-
             <Form
               ref={formRef}
               onSubmit={handleSubmit}

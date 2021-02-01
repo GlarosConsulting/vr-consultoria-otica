@@ -176,10 +176,8 @@ export const AuthProvider: React.FC = ({ children }) => {
       setLoading(true);
 
       const result = await Google.logInAsync({
-        androidClientId:
-          '878039305622-bfhpm7ejedpvdvblcj88rrt3min56dbp.apps.googleusercontent.com',
-        iosClientId:
-          '824008646225-sa1qtdsrghqm778bk8hn1lek11sisd21.apps.googleusercontent.com',
+        clientId:
+          'com.googleusercontent.apps.824008646225-sa1qtdsrghqm778bk8hn1lek11sisd21',
         scopes: ['profile', 'email'],
       });
 
