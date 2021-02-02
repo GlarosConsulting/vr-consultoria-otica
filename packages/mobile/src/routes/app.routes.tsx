@@ -7,6 +7,7 @@ import CustomDrawer from '../components/CustomDrawer';
 import { useAuth } from '../hooks/auth';
 import Home from '../pages/Home';
 import SignIn from '../pages/SignIn';
+import Stock from '../pages/Stock';
 
 const Drawer = createDrawerNavigator();
 
@@ -22,6 +23,7 @@ const AppRoutes: React.FC = () => {
         drawerContent={CustomDrawer(auth)}
       >
         <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Stock" component={Stock} />
 
         <Drawer.Screen name="SignIn" component={SignIn} />
       </Drawer.Navigator>

@@ -20,7 +20,6 @@ import getValidationErrors from '../../utils/getValidationError';
 
 import {
   Container,
-  FormContainer,
   ForgotPassword,
   ForgotPasswordText,
   SocialButtonsContainer,

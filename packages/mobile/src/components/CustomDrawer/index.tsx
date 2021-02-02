@@ -67,7 +67,7 @@ const CustomDrawer = ({ user, signOut }: IAuthContextData) => ({
           <MenuItemContainer>
             <MenuItemLabelContainer
               activeOpacity={0.5}
-              onPress={() => navigate('Home')}
+              onPress={() => navigate('Stock')}
             >
               <Feather name="package" size={16} />
               <MenuItemText>Estoque</MenuItemText>
