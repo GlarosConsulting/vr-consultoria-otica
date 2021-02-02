@@ -57,7 +57,7 @@ const CustomDrawer = ({ user, signOut }: IAuthContextData) => ({
           <MenuItemContainer>
             <MenuItemLabelContainer
               activeOpacity={0.5}
-              onPress={() => navigate('Home')}
+              onPress={() => navigate('Financial')}
             >
               <Feather name="dollar-sign" size={16} />
               <MenuItemText>Financeiro</MenuItemText>
@@ -67,7 +67,7 @@ const CustomDrawer = ({ user, signOut }: IAuthContextData) => ({
           <MenuItemContainer>
             <MenuItemLabelContainer
               activeOpacity={0.5}
-              onPress={() => navigate('Home')}
+              onPress={() => navigate('Stock')}
             >
               <Feather name="package" size={16} />
               <MenuItemText>Estoque</MenuItemText>
@@ -77,7 +77,7 @@ const CustomDrawer = ({ user, signOut }: IAuthContextData) => ({
           <MenuItemContainer>
             <MenuItemLabelContainer
               activeOpacity={0.5}
-              onPress={() => navigate('Home')}
+              onPress={() => navigate('Sales')}
             >
               <Feather name="tag" size={16} />
               <MenuItemText>Vendas</MenuItemText>

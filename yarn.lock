@@ -1133,6 +1133,14 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@callstack/react-theme-provider@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@callstack/react-theme-provider/-/react-theme-provider-3.0.5.tgz#a173e455e9603c9c45357a3b6ace1273086527ca"
+  integrity sha512-Iec+ybWN0FvNj87sD3oWo/49edGUP0UOSdMnzCJEFJIDYr992ECIuOV89burAAh2/ibPCxgLiK6dmgv2mO/8Tg==
+  dependencies:
+    deepmerge "^3.2.0"
+    hoist-non-react-statics "^3.3.0"
+
 "@chakra-ui/core@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@chakra-ui/core/-/core-0.8.0.tgz#a377286becd86008448ec8cf29ceb8fc301ac2dc"
@@ -4433,10 +4441,26 @@
   dependencies:
     "@types/react" "^16"
 
-"@types/react-native@*", "@types/react-native@~0.63.2":
+"@types/react-native-table-component@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@types/react-native-table-component/-/react-native-table-component-1.2.0.tgz#9328052cf95d5d710fc13b4b95459ab1ef82daf1"
+  integrity sha512-7uFDcUdYUGY9DH0WgbptklqsOX3xdVCbJJuom6tBmvcdKrCUirvezWkSY5NlMVdMxRqsDCZYOnN5gVm3KeiKwg==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+    csstype "^3.0.3"
+
+"@types/react-native@*":
   version "0.63.46"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.46.tgz#942df5af29046c6f22227495e00d5297cc1cea73"
   integrity sha512-SnBnWRErpISIaWk4K8kAfIKqSPdZ8fdH6HIw7kVdz6jMl/5FAf6iXeIwRfVZg1bCMh+ymNPCpSENNNEVprxj/w==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-native@0.63.40":
+  version "0.63.40"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.63.40.tgz#66b11824a6aadb0dde0db87bd8aff58165c7a8f8"
+  integrity sha512-y98TQBjfncIrdDrwIhxcmcad1gHKNfUKFnCBk3heYy0Gvt6BNcBeSKRvACV4cf6R1K/cNJMoS3rjaMvYhQyAgw==
   dependencies:
     "@types/react" "*"
 
@@ -6497,7 +6521,7 @@ color@3.1.2:
     color-convert "^1.9.1"
     color-string "^1.5.2"
 
-color@^3.1.3:
+color@^3.1.2, color@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/color/-/color-3.1.3.tgz#ca67fb4e7b97d611dcde39eceed422067d91596e"
   integrity sha512-xgXAcTHa2HeFCGLE9Xs/R82hujGtu9Jd9x4NW3T34+OMs7VoPsjwzRczKHvTAHeJwWFwX5j15+MgAppE8ztObQ==
@@ -7189,7 +7213,7 @@ csstype@^2.5.7, csstype@^2.6.9:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.14.tgz#004822a4050345b55ad4dcc00be1d9cf2f4296de"
   integrity sha512-2mSc+VEpGPblzAxyeR+vZhJKgYg0Og0nnRi7pmRXFYYxSfnOnW8A5wwQb4n4cE2nIOzqKOAzLCaEX6aBmNEv8A==
 
-csstype@^3.0.2:
+csstype@^3.0.2, csstype@^3.0.3:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.6.tgz#865d0b5833d7d8d40f4e5b8a6d76aea3de4725ef"
   integrity sha512-+ZAmfyWMT7TiIlzdqJgjMb7S4f1beorDbWbsocyK4RaiqA5RTX3K14bnBWmmA9QEM0gRdsjyyrEmcyga8Zsxmw==
@@ -14654,6 +14678,15 @@ react-native-iphone-x-helper@^1.3.0, react-native-iphone-x-helper@^1.3.1:
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
   integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
 
+react-native-paper@^4.7.1:
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-4.7.1.tgz#9f22116d39e4a129be9fd4c8d7342d0f6a20245c"
+  integrity sha512-37xJgCcTAELFBvE7+l9xcMW3wh2/dvrOs7TeRLIpnHsjfa+m4h+vvzb8q0YIUJOKtHcJ4cY77NHUr6JMGzNHFw==
+  dependencies:
+    "@callstack/react-theme-provider" "^3.0.5"
+    color "^3.1.2"
+    react-native-iphone-x-helper "^1.3.1"
+
 react-native-reanimated@~1.13.0:
   version "1.13.2"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.13.2.tgz#1ae5457b24b4913d173a5a064bb28eae7783d293"
@@ -14678,6 +14711,11 @@ react-native-svg@^12.1.0:
   dependencies:
     css-select "^2.1.0"
     css-tree "^1.0.0-alpha.39"
+
+react-native-table-component@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-table-component/-/react-native-table-component-1.2.1.tgz#5f1e0f159b1dff9df0d5601c4a5ab99d1aa99a25"
+  integrity sha512-sapwO0bONfQtpWg3GVMwP5D3lGEJlxPB3c7fb0soXBynvCa+SBktacVZ9OmYJnIbRJ3uW5pS4tzNc8GmE+UScw==
 
 react-native-web@~0.13.12:
   version "0.13.18"
