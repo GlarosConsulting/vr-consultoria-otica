@@ -15,7 +15,7 @@ const AppRoutes: React.FC = () => {
 
   return (
     <>
-      <StatusBar backgroundColor="#e5e5e5" barStyle="light-content" />
+      <StatusBar backgroundColor="#e5e5e5" barStyle="dark-content" />
 
       <Drawer.Navigator
         initialRouteName="Home"
