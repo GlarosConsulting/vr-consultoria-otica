@@ -123,15 +123,6 @@ const SignIn: React.FC = () => {
               backgroundColor="#f5e7ea"
               onPress={() => signInWithGoogle()}
             />
-
-            <SocialButton
-              iconType="feather"
-              buttonTitle="Entrar com o telefone"
-              btnType="phone"
-              color="#617feb"
-              backgroundColor="#e7eaf5"
-              onPress={() => navigate('PhoneSignIn')}
-            />
           </SocialButtonsContainer>
         </Container>
 
