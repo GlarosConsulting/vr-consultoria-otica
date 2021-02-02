@@ -1,6 +1,6 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
-import { BarChart } from 'react-native-chart-kit';
+// import { Dimensions } from 'react-native';
+// import { BarChart } from 'react-native-chart-kit';
 
 import Header from '../../components/Header';
 
@@ -11,7 +11,7 @@ const Home: React.FC = () => (
     <Header />
 
     <Container>
-      <BarChart
+      {/* <BarChart
         data={{
           labels: ['January', 'February', 'March', 'April', 'May', 'June'],
           datasets: [
@@ -43,7 +43,7 @@ const Home: React.FC = () => (
         style={{
           borderRadius: 8,
         }}
-      />
+      /> */}
     </Container>
 
     <ContactButtonContainer activeOpacity={0.6}>

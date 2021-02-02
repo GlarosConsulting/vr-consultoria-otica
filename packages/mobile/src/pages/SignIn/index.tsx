@@ -78,13 +78,7 @@ const SignIn: React.FC = () => {
         keyboardShouldPersistTaps="handled"
       >
         <Container>
-          <Form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            css={{
-              width: '100%',
-            }}
-          >
+          <Form ref={formRef} onSubmit={handleSubmit}>
             <Input
               autoCorrect={false}
               autoCapitalize="none"

@@ -5,7 +5,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import CustomDrawer from '../components/CustomDrawer';
 import { useAuth } from '../hooks/auth';
+import Financial from '../pages/FInancial';
 import Home from '../pages/Home';
+import Sales from '../pages/Sales';
 import SignIn from '../pages/SignIn';
 import Stock from '../pages/Stock';
 
@@ -24,6 +26,8 @@ const AppRoutes: React.FC = () => {
       >
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Stock" component={Stock} />
+        <Drawer.Screen name="Financial" component={Financial} />
+        <Drawer.Screen name="Sales" component={Sales} />
 
         <Drawer.Screen name="SignIn" component={SignIn} />
       </Drawer.Navigator>
