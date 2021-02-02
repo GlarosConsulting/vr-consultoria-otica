@@ -2,10 +2,26 @@ import { getBottomSpace } from 'react-native-iphone-x-helper';
 
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   flex: 1;
 
   padding: 16px;
+`;
+
+export const InfoCard = styled.View`
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+
+  align-items: center;
+`;
+
+export const InfoCardTitle = styled.Text`
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
+
+  margin-bottom: 8px;
 `;
 
 export const ContactButtonContainer = styled.TouchableOpacity`

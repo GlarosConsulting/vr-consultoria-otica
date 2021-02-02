@@ -1,16 +1,38 @@
 import React from 'react';
-// import { Dimensions } from 'react-native';
-// import { BarChart } from 'react-native-chart-kit';
 
 import Header from '../../components/Header';
 
-import { Container, ContactButtonContainer, ContactButtonText } from './styles';
+import {
+  Container,
+  InfoCard,
+  InfoCardTitle,
+  ContactButtonContainer,
+  ContactButtonText,
+} from './styles';
 
 const Home: React.FC = () => (
   <>
     <Header />
 
-    <Container>
+    <Container contentContainerStyle={{ paddingBottom: 96 }}>
+      <InfoCard
+        style={{
+          marginTop: 16,
+          minHeight: 196,
+        }}
+      >
+        <InfoCardTitle>Fluxo de caixa</InfoCardTitle>
+      </InfoCard>
+
+      <InfoCard
+        style={{
+          marginTop: 16,
+          minHeight: 340,
+        }}
+      >
+        <InfoCardTitle>Performance de vendas por vendedor</InfoCardTitle>
+      </InfoCard>
+
       {/* <BarChart
         data={{
           labels: ['January', 'February', 'March', 'April', 'May', 'June'],

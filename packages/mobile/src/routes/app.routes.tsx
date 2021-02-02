@@ -5,7 +5,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import CustomDrawer from '../components/CustomDrawer';
 import { useAuth } from '../hooks/auth';
-import Financial from '../pages/FInancial';
+import Financial from '../pages/Financial';
 import Home from '../pages/Home';
 import Sales from '../pages/Sales';
 import SignIn from '../pages/SignIn';
