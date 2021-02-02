@@ -9,7 +9,7 @@ import AppProvider from './hooks';
 import Routes from './routes';
 
 const App: React.FC = () => {
-  const [permission, askForPermission] = usePermissions('camera');
+  const [permission, askForPermission] = usePermissions('notifications');
 
   useEffect(() => {
     if (!permission || permission.status !== 'granted') {
