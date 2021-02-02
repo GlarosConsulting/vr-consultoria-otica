@@ -1,4 +1,4 @@
-import { IBilliing } from '../interfaces/billings';
+import IBilling from '../interfaces/billings/IBilling';
 
 export default [
   {
@@ -17,4 +17,4 @@ export default [
     name: 'Parcelado 10x',
     value: 134645.4,
   },
-] as IBilliing[];
+] as IBilling[];

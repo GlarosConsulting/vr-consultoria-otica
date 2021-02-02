@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { DataTable } from 'react-native-paper';
 
 import Header from '../../components/Header';
-import { IFormattedBilliing } from '../../interfaces/billings';
+import IFormattedBilling from '../../interfaces/billings/IFormattedBilling';
 import mostSoldProducts from '../../mocks/most-sold-products';
 import formatRealValue from '../../utils/formatRealValue';
 
@@ -16,9 +16,9 @@ import {
 } from './styles';
 
 const Financial: React.FC = () => {
-  const formattedMostSoldProducts: IFormattedBilliing[] = useMemo(
+  const formattedMostSoldProducts: IFormattedBilling[] = useMemo(
     () =>
-      mostSoldProducts.map<IFormattedBilliing>(bill => ({
+      mostSoldProducts.map<IFormattedBilling>(bill => ({
         name: bill.name,
         value: formatRealValue(bill.value),
       })),
@@ -29,9 +29,14 @@ const Financial: React.FC = () => {
     <>
       <Header />
 
-      <Container>
-        <TableCard>
+      <Container contentContainerStyle={{ paddingBottom: 96 }}>
+        <TableCard style={{ minHeight: 156 }}>
           <TableCardTitle>Produtos mais vendidos</TableCardTitle>
+        </TableCard>
+
+        <TableCard style={{ marginTop: 16 }}>
+          <TableCardTitle>Produtos mais vendidos</TableCardTitle>
+
           <DataTable>
             <DataTable.Header>
               <DataTable.Title>Nome</DataTable.Title>
@@ -45,6 +50,10 @@ const Financial: React.FC = () => {
               </DataTable.Row>
             ))}
           </DataTable>
+        </TableCard>
+
+        <TableCard style={{ marginTop: 16, minHeight: 156 }}>
+          <TableCardTitle>Produtos mais vendidos</TableCardTitle>
         </TableCard>
       </Container>
 

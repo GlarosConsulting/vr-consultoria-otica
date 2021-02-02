@@ -1,8 +1,8 @@
-import { IBilliing } from '../interfaces/billings';
+import IBilling from '../interfaces/billings/IBilling';
 
 export default [
   {
-    name: 'Representation',
+    name: 'Representação',
     value: 285302.0,
   },
   {
@@ -17,4 +17,4 @@ export default [
     name: 'Brascol Com. de Roupas Ltda',
     value: 53191.2,
   },
-] as IBilliing[];
+] as IBilling[];

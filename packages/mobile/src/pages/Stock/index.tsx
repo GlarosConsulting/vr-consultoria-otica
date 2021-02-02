@@ -21,7 +21,7 @@ const Stock: React.FC = () => {
     <>
       <Header />
 
-      <Container>
+      <Container contentContainerStyle={{ paddingBottom: 96 }}>
         <InfoCard>
           <InfoCardTitle>Estoque</InfoCardTitle>
 
@@ -78,6 +78,15 @@ const Stock: React.FC = () => {
               </ScrollView>
             </View>
           </ScrollView>
+        </InfoCard>
+
+        <InfoCard
+          style={{
+            marginTop: 16,
+            minHeight: 164,
+          }}
+        >
+          <InfoCardTitle>Performance</InfoCardTitle>
         </InfoCard>
       </Container>
 

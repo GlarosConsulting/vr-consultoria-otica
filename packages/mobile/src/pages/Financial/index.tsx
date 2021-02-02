@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { DataTable } from 'react-native-paper';
 
 import Header from '../../components/Header';
-import { IFormattedBilliing } from '../../interfaces/billings';
+import IFormattedBilling from '../../interfaces/billings/IFormattedBilling';
 import billsToPay from '../../mocks/bills-to-pay';
 import billsToReceive from '../../mocks/bills-to-receive';
 import formatRealValue from '../../utils/formatRealValue';
@@ -17,18 +17,18 @@ import {
 } from './styles';
 
 const Financial: React.FC = () => {
-  const formattedBillsToPay: IFormattedBilliing[] = useMemo(
+  const formattedBillsToPay: IFormattedBilling[] = useMemo(
     () =>
-      billsToPay.map<IFormattedBilliing>(bill => ({
+      billsToPay.map<IFormattedBilling>(bill => ({
         name: bill.name,
         value: formatRealValue(bill.value),
       })),
     [billsToPay],
   );
 
-  const formattedBillsToReceive: IFormattedBilliing[] = useMemo(
+  const formattedBillsToReceive: IFormattedBilling[] = useMemo(
     () =>
-      billsToReceive.map<IFormattedBilliing>(bill => ({
+      billsToReceive.map<IFormattedBilling>(bill => ({
         name: bill.name,
         value: formatRealValue(bill.value),
       })),
@@ -39,9 +39,10 @@ const Financial: React.FC = () => {
     <>
       <Header />
 
-      <Container>
+      <Container contentContainerStyle={{ paddingBottom: 96 }}>
         <TableCard>
           <TableCardTitle>Contas a pagar</TableCardTitle>
+
           <DataTable>
             <DataTable.Header>
               <DataTable.Title>Nome</DataTable.Title>
@@ -57,8 +58,9 @@ const Financial: React.FC = () => {
           </DataTable>
         </TableCard>
 
-        <TableCard style={{ marginTop: 6 }}>
+        <TableCard style={{ marginTop: 16 }}>
           <TableCardTitle>Contas a receber</TableCardTitle>
+
           <DataTable>
             <DataTable.Header>
               <DataTable.Title>Nome</DataTable.Title>
@@ -72,6 +74,10 @@ const Financial: React.FC = () => {
               </DataTable.Row>
             ))}
           </DataTable>
+        </TableCard>
+
+        <TableCard style={{ marginTop: 16, minHeight: 96 }}>
+          <TableCardTitle>Fluxo de caixa</TableCardTitle>
         </TableCard>
       </Container>
 
