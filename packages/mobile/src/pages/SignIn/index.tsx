@@ -32,7 +32,7 @@ const SignIn: React.FC = () => {
 
   const { navigate } = useNavigation();
 
-  const { signInWithEmailAndPassword, signInWithGoogle } = useAuth();
+  const { signInWithEmailAndPassword /* , signInWithGoogle */ } = useAuth();
 
   const handleSubmit = useCallback(
     async data => {
@@ -115,14 +115,14 @@ const SignIn: React.FC = () => {
           </ForgotPassword>
 
           <SocialButtonsContainer>
-            <SocialButton
+            {/* <SocialButton
               iconType="font-awesome"
               buttonTitle="Entrar com o Google"
               btnType="google"
               color="#de4d41"
               backgroundColor="#f5e7ea"
               onPress={() => signInWithGoogle()}
-            />
+            /> */}
 
             <SocialButton
               iconType="feather"
