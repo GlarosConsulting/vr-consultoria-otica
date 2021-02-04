@@ -1,9 +1,14 @@
 import { Platform } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
+import * as ScreenOrientation from 'expo-screen-orientation';
 import styled, { css } from 'styled-components/native';
 
-export const Container = styled.View`
+interface IContainerProps {
+  orientation: ScreenOrientation.Orientation;
+}
+
+export const Container = styled.View<IContainerProps>`
   background: #e5e5e5;
   min-height: 64px;
 
@@ -13,8 +18,10 @@ export const Container = styled.View`
 
   padding: 16px;
 
-  ${() =>
+  ${({ orientation }) =>
     Platform.OS === 'ios' &&
+    orientation !== ScreenOrientation.Orientation.LANDSCAPE_LEFT &&
+    orientation !== ScreenOrientation.Orientation.LANDSCAPE_RIGHT &&
     css`
       padding-top: ${24 + getStatusBarHeight()}px;
     `}
