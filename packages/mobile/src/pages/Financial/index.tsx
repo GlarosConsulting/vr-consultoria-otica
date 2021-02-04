@@ -1,7 +1,9 @@
 import React from 'react';
 import { useMemo } from 'react';
+import { Image } from 'react-native';
 import { DataTable } from 'react-native-paper';
 
+import fluxoDeCaixaImg from '../../assets/VR_Assets/Tela_inicial_E_FINANCEIRO_fluxo_de_caixa 1.png';
 import Header from '../../components/Header';
 import IFormattedBilling from '../../interfaces/billings/IFormattedBilling';
 import billsToPay from '../../mocks/bills-to-pay';
@@ -78,6 +80,11 @@ const Financial: React.FC = () => {
 
         <TableCard style={{ marginTop: 16, minHeight: 96 }}>
           <TableCardTitle>Fluxo de caixa</TableCardTitle>
+
+          <Image
+            style={{ width: '100%', height: 200, marginTop: 22 }}
+            source={fluxoDeCaixaImg}
+          />
         </TableCard>
       </Container>
 
