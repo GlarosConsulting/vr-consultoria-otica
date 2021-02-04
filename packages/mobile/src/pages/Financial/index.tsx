@@ -4,7 +4,7 @@ import { Image } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { DataTable } from 'react-native-paper';
 
-import fluxoDeCaixaImg from '../../assets/VR_Assets/Tela_inicial_E_FINANCEIRO_fluxo_de_caixa 1.png';
+import fluxoDeCaixaImg from '../../assets/financial-graph.png';
 import Header from '../../components/Header';
 import IFormattedBilling from '../../interfaces/billings/IFormattedBilling';
 import billsToPay from '../../mocks/bills-to-pay';
