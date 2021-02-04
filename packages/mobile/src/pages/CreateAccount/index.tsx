@@ -16,17 +16,10 @@ import * as Yup from 'yup';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
-import SocialButton from '../../components/SocialButton';
 import { useAuth } from '../../hooks/auth';
 import getValidationErrors from '../../utils/getValidationError';
 
-import {
-  Title,
-  Container,
-  BackToSignIn,
-  BackToSignInText,
-  SocialButtonsContainer,
-} from './styles';
+import { Title, Container, BackToSignIn, BackToSignInText } from './styles';
 
 interface ISignUpFormData {
   name: string;
@@ -41,7 +34,7 @@ const CreateAccount: React.FC = () => {
   const emailInputRef = useRef<TextInput>(null);
   const passwordInputRef = useRef<TextInput>(null);
 
-  const { signUp, signInWithGoogle } = useAuth();
+  const { signUp } = useAuth();
 
   const navigation = useNavigation();
 
@@ -156,26 +149,6 @@ const CreateAccount: React.FC = () => {
               Criar conta
             </Button>
           </Form>
-
-          <SocialButtonsContainer>
-            <SocialButton
-              iconType="font-awesome"
-              buttonTitle="Entrar com o Google"
-              btnType="google"
-              color="#de4d41"
-              backgroundColor="#f5e7ea"
-              onPress={() => signInWithGoogle()}
-            />
-
-            <SocialButton
-              iconType="feather"
-              buttonTitle="Entrar com o telefone"
-              btnType="phone"
-              color="#617feb"
-              backgroundColor="#e7eaf5"
-              onPress={() => navigation.navigate('PhoneSignIn')}
-            />
-          </SocialButtonsContainer>
 
           <BackToSignIn onPress={() => navigation.goBack()}>
             <Icon name="arrow-left" size={20} color="#E1E1E6" />
