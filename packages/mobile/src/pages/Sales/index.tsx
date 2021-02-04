@@ -1,41 +1,65 @@
 import React from 'react';
 import { useMemo } from 'react';
+import { Image } from 'react-native';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { DataTable } from 'react-native-paper';
 
+import salesBySellerImg from '../../assets/sales-by-seller.png';
 import Header from '../../components/Header';
 import IFormattedBilling from '../../interfaces/billings/IFormattedBilling';
-import mostSoldProducts from '../../mocks/most-sold-products';
+import IFormattedComissionBySeller from '../../interfaces/sales/IFormattedComissionBySeller';
+import comissionBySellersMock from '../../mocks/comission-by-sellers';
+import mostSoldProductsMock from '../../mocks/most-sold-products';
 import formatRealValue from '../../utils/formatRealValue';
 
 import {
   Container,
   ContactButtonContainer,
   ContactButtonText,
-  TableCard,
-  TableCardTitle,
+  InfoCard,
+  InfoCardTitle,
 } from './styles';
 
 const Financial: React.FC = () => {
-  const formattedMostSoldProducts: IFormattedBilling[] = useMemo(
+  const mostSoldProductsFormatted: IFormattedBilling[] = useMemo(
     () =>
-      mostSoldProducts.map<IFormattedBilling>(bill => ({
+      mostSoldProductsMock.map<IFormattedBilling>(bill => ({
         name: bill.name,
         value: formatRealValue(bill.value),
       })),
-    [mostSoldProducts],
+    [mostSoldProductsMock],
+  );
+  const comissionBySellersFormatted: IFormattedComissionBySeller[] = useMemo(
+    () =>
+      comissionBySellersMock.map<IFormattedComissionBySeller>(comission => ({
+        name: comission.name,
+        month: formatRealValue(comission.month),
+        twelve_months: formatRealValue(comission.twelve_months),
+      })),
+    [comissionBySellersMock],
   );
 
   return (
     <>
       <Header />
 
-      <Container contentContainerStyle={{ paddingBottom: 96 }}>
-        <TableCard style={{ minHeight: 156 }}>
-          <TableCardTitle>Produtos mais vendidos</TableCardTitle>
-        </TableCard>
+      <Container
+        contentContainerStyle={{ paddingBottom: getStatusBarHeight() + 96 }}
+      >
+        <InfoCard>
+          <InfoCardTitle>Vendas por vendedor</InfoCardTitle>
 
-        <TableCard style={{ marginTop: 16 }}>
-          <TableCardTitle>Produtos mais vendidos</TableCardTitle>
+          <Image
+            source={salesBySellerImg}
+            style={{
+              width: '100%',
+              height: 132,
+            }}
+          />
+        </InfoCard>
+
+        <InfoCard style={{ marginTop: 16 }}>
+          <InfoCardTitle>Produtos mais vendidos</InfoCardTitle>
 
           <DataTable>
             <DataTable.Header>
@@ -43,18 +67,36 @@ const Financial: React.FC = () => {
               <DataTable.Title numeric>Valor</DataTable.Title>
             </DataTable.Header>
 
-            {formattedMostSoldProducts.map(bill => (
+            {mostSoldProductsFormatted.map(bill => (
               <DataTable.Row key={bill.name}>
                 <DataTable.Cell>{bill.name}</DataTable.Cell>
                 <DataTable.Cell numeric>{bill.value}</DataTable.Cell>
               </DataTable.Row>
             ))}
           </DataTable>
-        </TableCard>
+        </InfoCard>
 
-        <TableCard style={{ marginTop: 16, minHeight: 156 }}>
-          <TableCardTitle>Produtos mais vendidos</TableCardTitle>
-        </TableCard>
+        <InfoCard style={{ marginTop: 16 }}>
+          <InfoCardTitle>Comissão por vendedor</InfoCardTitle>
+
+          <DataTable>
+            <DataTable.Header>
+              <DataTable.Title>Funcionário</DataTable.Title>
+              <DataTable.Title numeric>Fev - 2021</DataTable.Title>
+              <DataTable.Title numeric>12 meses</DataTable.Title>
+            </DataTable.Header>
+
+            {comissionBySellersFormatted.map(comission => (
+              <DataTable.Row key={comission.name}>
+                <DataTable.Cell>{comission.name}</DataTable.Cell>
+                <DataTable.Cell numeric>{comission.month}</DataTable.Cell>
+                <DataTable.Cell numeric>
+                  {comission.twelve_months}
+                </DataTable.Cell>
+              </DataTable.Row>
+            ))}
+          </DataTable>
+        </InfoCard>
       </Container>
 
       <ContactButtonContainer activeOpacity={0.6}>

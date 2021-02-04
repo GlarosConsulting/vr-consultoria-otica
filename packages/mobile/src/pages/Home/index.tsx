@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
 import salesBySeller from '../../assets/VR_Assets/sales-by-seller.png';
 import fluxoDeCaixaImg from '../../assets/VR_Assets/Tela_inicial_E_FINANCEIRO_fluxo_de_caixa 1.png';
@@ -17,7 +18,9 @@ const Home: React.FC = () => (
   <>
     <Header />
 
-    <Container contentContainerStyle={{ paddingBottom: 96 }}>
+    <Container
+      contentContainerStyle={{ paddingBottom: getStatusBarHeight() + 96 }}
+    >
       <InfoCard
         style={{
           marginTop: 16,

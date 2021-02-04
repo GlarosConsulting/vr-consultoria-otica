@@ -13,6 +13,8 @@ export const InfoCard = styled.View`
   padding: 16px;
   border-radius: 8px;
 
+  width: 100%;
+
   align-items: center;
 `;
 

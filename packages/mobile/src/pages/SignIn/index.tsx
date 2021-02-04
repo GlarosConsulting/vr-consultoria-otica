@@ -30,7 +30,7 @@ const SignIn: React.FC = () => {
 
   const { navigate } = useNavigation();
 
-  const { signInWithEmailAndPassword /* , signInWithGoogle */ } = useAuth();
+  const { signInWithEmailAndPassword } = useAuth();
 
   const handleSubmit = useCallback(
     async data => {
