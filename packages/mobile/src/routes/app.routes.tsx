@@ -7,6 +7,7 @@ import CustomDrawer from '../components/CustomDrawer';
 import { useAuth } from '../hooks/auth';
 import Financial from '../pages/Financial';
 import Home from '../pages/Home';
+import MaximizedChart from '../pages/MaximizedChart';
 import Sales from '../pages/Sales';
 import SignIn from '../pages/SignIn';
 import Stock from '../pages/Stock';
@@ -28,6 +29,8 @@ const AppRoutes: React.FC = () => {
         <Drawer.Screen name="Stock" component={Stock} />
         <Drawer.Screen name="Financial" component={Financial} />
         <Drawer.Screen name="Sales" component={Sales} />
+
+        <Drawer.Screen name="MaximizedChart" component={MaximizedChart} />
 
         <Drawer.Screen name="SignIn" component={SignIn} />
       </Drawer.Navigator>

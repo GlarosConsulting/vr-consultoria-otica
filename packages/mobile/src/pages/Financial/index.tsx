@@ -4,7 +4,7 @@ import { Image } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { DataTable } from 'react-native-paper';
 
-import fluxoDeCaixaImg from '../../assets/financial-graph.png';
+import financialChartImg from '../../assets/financial-chart.png';
 import Header from '../../components/Header';
 import IFormattedBilling from '../../interfaces/billings/IFormattedBilling';
 import billsToPay from '../../mocks/bills-to-pay';
@@ -86,7 +86,7 @@ const Financial: React.FC = () => {
 
           <Image
             style={{ width: '100%', height: 200 }}
-            source={fluxoDeCaixaImg}
+            source={financialChartImg}
           />
         </InfoCard>
       </Container>

@@ -38,7 +38,7 @@ const CustomDrawer = ({ user, signOut }: IAuthContextData) => ({
       <ScrollView>
         <DrawerHeader>
           <DrawerHeaderTitle>MENU PRINCIPAL</DrawerHeaderTitle>
-          <DrawerHeaderVersion>Versão demo</DrawerHeaderVersion>
+          <DrawerHeaderVersion>Versão DEMO</DrawerHeaderVersion>
         </DrawerHeader>
 
         <UserNameText>{user?.data.displayName}</UserNameText>

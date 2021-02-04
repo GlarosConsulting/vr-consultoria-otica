@@ -2,58 +2,89 @@ import React from 'react';
 import { Image } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
-import fluxoDeCaixaImg from '../../assets/financial-graph.png';
-import salesBySeller from '../../assets/sales-by-seller.png';
+import { useNavigation } from '@react-navigation/native';
+
+import financialChartImg from '../../assets/financial-chart.png';
+import salesBySellerImg from '../../assets/sales-by-seller.png';
 import Header from '../../components/Header';
+import { useMaximizedChart } from '../../hooks/maximized-chart';
 
 import {
   Container,
+  TouchableInfoCard,
   InfoCard,
   InfoCardTitle,
   ContactButtonContainer,
   ContactButtonText,
 } from './styles';
 
-const Home: React.FC = () => (
-  <>
-    <Header />
+const Home: React.FC = () => {
+  const { navigate } = useNavigation();
 
-    <Container
-      contentContainerStyle={{ paddingBottom: getStatusBarHeight() + 96 }}
-    >
-      <InfoCard
-        style={{
-          marginTop: 16,
-          minHeight: 196,
-        }}
+  const {
+    setMaximizedChartContent,
+    navigateToMaximizedChart,
+  } = useMaximizedChart();
+
+  return (
+    <>
+      <Header />
+
+      <Container
+        contentContainerStyle={{ paddingBottom: getStatusBarHeight() + 96 }}
       >
-        <InfoCardTitle>Fluxo de caixa</InfoCardTitle>
+        <TouchableInfoCard
+          activeOpacity={0.7}
+          onPress={() => {
+            setMaximizedChartContent(
+              <InfoCard
+                style={{
+                  marginTop: 16,
+                  minHeight: 196,
+                }}
+              >
+                <InfoCardTitle>Fluxo de caixa</InfoCardTitle>
 
-        <Image
-          style={{ width: '100%', height: 200, marginTop: 22 }}
-          source={fluxoDeCaixaImg}
-        />
-      </InfoCard>
+                <Image
+                  style={{ width: '100%', height: 200, marginTop: 22 }}
+                  source={financialChartImg}
+                />
+              </InfoCard>,
+            );
 
-      <InfoCard
-        style={{
-          marginTop: 16,
-          minHeight: 340,
-        }}
-      >
-        <InfoCardTitle>Performance de vendas por vendedor</InfoCardTitle>
+            navigateToMaximizedChart(navigate);
+          }}
+          style={{
+            marginTop: 16,
+          }}
+        >
+          <InfoCardTitle>Fluxo de caixa</InfoCardTitle>
 
-        <Image
-          style={{ width: '100%', height: 132, marginTop: 42 }}
-          source={salesBySeller}
-        />
-      </InfoCard>
-    </Container>
+          <Image
+            style={{ width: '100%', height: 200 }}
+            source={financialChartImg}
+          />
+        </TouchableInfoCard>
 
-    <ContactButtonContainer activeOpacity={0.6}>
-      <ContactButtonText>Contato</ContactButtonText>
-    </ContactButtonContainer>
-  </>
-);
+        <InfoCard
+          style={{
+            marginTop: 16,
+          }}
+        >
+          <InfoCardTitle>Performance de vendas por vendedor</InfoCardTitle>
+
+          <Image
+            style={{ width: '100%', height: 132 }}
+            source={salesBySellerImg}
+          />
+        </InfoCard>
+      </Container>
+
+      <ContactButtonContainer activeOpacity={0.6}>
+        <ContactButtonText>Contato</ContactButtonText>
+      </ContactButtonContainer>
+    </>
+  );
+};
 
 export default Home;
