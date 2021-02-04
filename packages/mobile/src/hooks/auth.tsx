@@ -8,6 +8,7 @@ import React, {
 import { Alert } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as AppAuth from 'expo-app-auth';
 import * as Google from 'expo-google-app-auth';
 import firebase from 'firebase';
 
@@ -37,6 +38,7 @@ export interface IAuthContextData {
   passwordReset(email: string): Promise<void>;
 }
 
+const { URLSchemes } = AppAuth;
 const AuthContext = createContext<IAuthContextData>({} as IAuthContextData);
 
 export const AuthProvider: React.FC = ({ children }) => {
@@ -176,10 +178,9 @@ export const AuthProvider: React.FC = ({ children }) => {
       setLoading(true);
 
       const result = await Google.logInAsync({
-        androidClientId:
-          '878039305622-bfhpm7ejedpvdvblcj88rrt3min56dbp.apps.googleusercontent.com',
-        iosClientId:
-          '824008646225-sa1qtdsrghqm778bk8hn1lek11sisd21.apps.googleusercontent.com',
+        clientId:
+          URLSchemes.REVERSED_CLIENT_ID ||
+          'com.googleusercontent.apps.824008646225-sa1qtdsrghqm778bk8hn1lek11sisd21',
         scopes: ['profile', 'email'],
       });
 

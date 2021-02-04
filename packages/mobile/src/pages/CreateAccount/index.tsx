@@ -3,10 +3,12 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  View,
+  TextInput,
   Alert,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 
-import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/mobile';
@@ -19,27 +21,37 @@ import { useAuth } from '../../hooks/auth';
 import getValidationErrors from '../../utils/getValidationError';
 
 import {
+  Title,
   Container,
-  ForgotPassword,
-  ForgotPasswordText,
+  BackToSignIn,
+  BackToSignInText,
   SocialButtonsContainer,
-  CreateAccount,
-  CreateAccountText,
 } from './styles';
 
-const SignIn: React.FC = () => {
+interface ISignUpFormData {
+  name: string;
+  email: string;
+  password: string;
+}
+
+const CreateAccount: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const { navigate } = useNavigation();
+  const nameInputRef = useRef<TextInput>(null);
+  const emailInputRef = useRef<TextInput>(null);
+  const passwordInputRef = useRef<TextInput>(null);
 
-  const { signInWithEmailAndPassword /* , signInWithGoogle */ } = useAuth();
+  const { signUp, signInWithGoogle } = useAuth();
 
-  const handleSubmit = useCallback(
-    async data => {
+  const navigation = useNavigation();
+
+  const handleCreateAccount = useCallback(
+    async (data: ISignUpFormData) => {
       try {
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
+          name: Yup.string().required('Nome obrigatório'),
           email: Yup.string()
             .required('E-mail obrigatório')
             .email('Digite um e-mail válido'),
@@ -50,21 +62,30 @@ const SignIn: React.FC = () => {
           abortEarly: false,
         });
 
-        await signInWithEmailAndPassword(data.email, data.password);
+        await signUp(data);
 
-        navigate('Home');
-      } catch (error) {
-        if (error instanceof Yup.ValidationError) {
-          const errors = getValidationErrors(error);
+        navigation.navigate('SignIn');
+
+        Alert.alert(
+          'Cadastro realizado com sucesso!',
+          'Você já pode fazer login na aplicação.',
+        );
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
 
           formRef.current?.setErrors(errors);
 
           return;
         }
-        Alert.alert('Autenticação recusada.', 'Email ou senha inválidos');
+
+        Alert.alert(
+          'Erro ao criar usuário',
+          'Erro ao criar usuário, cadastro já existente',
+        );
       }
     },
-    [signInWithEmailAndPassword],
+    [navigation, signUp],
   );
 
   return (
@@ -78,27 +99,53 @@ const SignIn: React.FC = () => {
         keyboardShouldPersistTaps="handled"
       >
         <Container>
-          <Form ref={formRef} onSubmit={handleSubmit}>
+          <View>
+            <Title>Crie sua conta</Title>
+          </View>
+
+          <Form
+            ref={formRef}
+            onSubmit={handleCreateAccount}
+            style={{ width: '100%' }}
+          >
             <Input
-              autoCorrect={false}
-              autoCapitalize="none"
-              placeholder="E-mail"
-              keyboardType="email-address"
-              name="email"
-              icon="mail"
+              ref={nameInputRef}
+              autoCapitalize="words"
+              placeholder="Seu nome"
+              name="name"
+              icon="user"
+              keyboardType="default"
               returnKeyType="next"
+              onSubmitEditing={() => {
+                emailInputRef.current?.focus();
+              }}
             />
 
             <Input
-              secureTextEntry
+              ref={emailInputRef}
+              autoCorrect={false}
+              autoCapitalize="none"
+              placeholder="E-mail"
+              name="email"
+              icon="mail"
+              keyboardType="email-address"
+              returnKeyType="next"
+              onSubmitEditing={() => {
+                passwordInputRef.current?.focus();
+              }}
+            />
+
+            <Input
+              ref={passwordInputRef}
               placeholder="Senha"
               name="password"
               icon="lock"
-              textContentType="newPassword"
+              secureTextEntry
               returnKeyType="send"
               onSubmitEditing={() => {
                 formRef.current?.submitForm();
               }}
+              textContentType="newPassword"
             />
 
             <Button
@@ -106,23 +153,19 @@ const SignIn: React.FC = () => {
                 formRef.current?.submitForm();
               }}
             >
-              Entrar
+              Criar conta
             </Button>
           </Form>
 
-          <ForgotPassword onPress={() => navigate('ForgotPassword')}>
-            <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
-          </ForgotPassword>
-
           <SocialButtonsContainer>
-            {/* <SocialButton
+            <SocialButton
               iconType="font-awesome"
               buttonTitle="Entrar com o Google"
               btnType="google"
               color="#de4d41"
               backgroundColor="#f5e7ea"
               onPress={() => signInWithGoogle()}
-            /> */}
+            />
 
             <SocialButton
               iconType="feather"
@@ -130,18 +173,18 @@ const SignIn: React.FC = () => {
               btnType="phone"
               color="#617feb"
               backgroundColor="#e7eaf5"
-              onPress={() => navigate('PhoneSignIn')}
+              onPress={() => navigation.navigate('PhoneSignIn')}
             />
           </SocialButtonsContainer>
-        </Container>
 
-        <CreateAccount onPress={() => navigate('CreateAccount')}>
-          <Feather name="user" size={20} color="#E1E1E6" />
-          <CreateAccountText>Criar uma conta</CreateAccountText>
-        </CreateAccount>
+          <BackToSignIn onPress={() => navigation.goBack()}>
+            <Icon name="arrow-left" size={20} color="#E1E1E6" />
+            <BackToSignInText>Voltar para logon</BackToSignInText>
+          </BackToSignIn>
+        </Container>
       </ScrollView>
     </KeyboardAvoidingView>
   );
 };
 
-export default SignIn;
+export default CreateAccount;

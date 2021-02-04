@@ -8,25 +8,6 @@ export const Container = styled.ScrollView`
   padding: 16px;
 `;
 
-export const InfoCard = styled.View`
-  background: #fff;
-  padding: 16px;
-  border-radius: 8px;
-
-  width: 100%;
-
-  align-items: center;
-`;
-
-export const InfoCardTitle = styled.Text`
-  color: #333;
-  font-weight: bold;
-  font-size: 18px;
-  text-align: center;
-
-  margin-bottom: 8px;
-`;
-
 export const ContactButtonContainer = styled.TouchableOpacity`
   position: absolute;
   bottom: 0;
@@ -44,4 +25,16 @@ export const ContactButtonContainer = styled.TouchableOpacity`
 export const ContactButtonText = styled.Text`
   color: #333;
   font-size: 20px;
+`;
+
+export const TableCard = styled.View`
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 6px;
+`;
+
+export const TableCardTitle = styled.Text`
+  color: #333;
+  text-align: center;
+  font-weight: bold;
 `;

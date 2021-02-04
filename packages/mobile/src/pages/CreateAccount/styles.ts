@@ -5,39 +5,25 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
-  padding: 0 30px ${Platform.OS === 'android' ? 48 : 40}px;
-
   align-items: center;
+  padding: 0 32px ${Platform.OS === 'android' ? 150 : 40}px;
   justify-content: center;
 `;
 
-export const FormContainer = styled.View`
-  background: #344c66;
-  border-radius: 8px;
-  padding: 24px;
-
-  width: 100%;
-
-  align-items: center;
+export const Title = styled.Text`
+  font-size: 24px;
+  color: #000;
+  margin: 64px 0 24px;
 `;
 
-export const ForgotPassword = styled.TouchableOpacity`
-  margin-top: 24px;
-`;
-
-export const ForgotPasswordText = styled.Text`
-  color: #333;
-  font-size: 16px;
-`;
-
-export const CreateAccount = styled.TouchableOpacity`
+export const BackToSignIn = styled.TouchableOpacity`
   position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
-  background: #454545;
+  background: #485460;
   border-top-width: 1px;
-  border-color: #fff;
+  border-color: #e1e1e6;
   padding: 16px 0 ${16 + getBottomSpace()}px;
 
   justify-content: center;
@@ -45,7 +31,7 @@ export const CreateAccount = styled.TouchableOpacity`
   flex-direction: row;
 `;
 
-export const CreateAccountText = styled.Text`
+export const BackToSignInText = styled.Text`
   color: #fff;
   font-size: 18px;
   margin-left: 16px;
