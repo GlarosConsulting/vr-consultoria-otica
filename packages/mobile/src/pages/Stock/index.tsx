@@ -1,8 +1,11 @@
 import React from 'react';
 import { useMemo } from 'react';
+import { Image } from 'react-native';
 import { ScrollView, View } from 'react-native';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { Table, Row } from 'react-native-table-component';
 
+import stockPerformanceImg from '../../assets/stock-performance.png';
 import Header from '../../components/Header';
 import stocksMock from '../../mocks/stocks';
 
@@ -21,7 +24,9 @@ const Stock: React.FC = () => {
     <>
       <Header />
 
-      <Container contentContainerStyle={{ paddingBottom: 96 }}>
+      <Container
+        contentContainerStyle={{ paddingBottom: getStatusBarHeight() + 96 }}
+      >
         <InfoCard>
           <InfoCardTitle>Estoque</InfoCardTitle>
 
@@ -83,10 +88,17 @@ const Stock: React.FC = () => {
         <InfoCard
           style={{
             marginTop: 16,
-            minHeight: 164,
           }}
         >
           <InfoCardTitle>Performance</InfoCardTitle>
+
+          <Image
+            source={stockPerformanceImg}
+            style={{
+              width: '100%',
+              height: 464,
+            }}
+          />
         </InfoCard>
       </Container>
 

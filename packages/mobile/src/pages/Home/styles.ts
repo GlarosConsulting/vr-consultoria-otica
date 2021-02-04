@@ -13,6 +13,8 @@ export const InfoCard = styled.View`
   padding: 16px;
   border-radius: 8px;
 
+  width: 100%;
+
   align-items: center;
 `;
 
@@ -20,6 +22,7 @@ export const InfoCardTitle = styled.Text`
   color: #333;
   font-weight: bold;
   font-size: 18px;
+  text-align: center;
 
   margin-bottom: 8px;
 `;

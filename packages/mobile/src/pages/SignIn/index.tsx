@@ -5,6 +5,7 @@ import {
   Platform,
   Alert,
 } from 'react-native';
+import { Image } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -12,6 +13,7 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/mobile';
 import * as Yup from 'yup';
 
+import Logo from '../../assets/logo.png';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { useAuth } from '../../hooks/auth';
@@ -30,7 +32,7 @@ const SignIn: React.FC = () => {
 
   const { navigate } = useNavigation();
 
-  const { signInWithEmailAndPassword /* , signInWithGoogle */ } = useAuth();
+  const { signInWithEmailAndPassword } = useAuth();
 
   const handleSubmit = useCallback(
     async data => {
@@ -77,6 +79,8 @@ const SignIn: React.FC = () => {
       >
         <Container>
           <Form ref={formRef} onSubmit={handleSubmit}>
+            <Image source={Logo} style={{ marginBottom: 32 }} />
+
             <Input
               autoCorrect={false}
               autoCapitalize="none"

@@ -1,7 +1,10 @@
 import React from 'react';
 import { useMemo } from 'react';
+import { Image } from 'react-native';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { DataTable } from 'react-native-paper';
 
+import fluxoDeCaixaImg from '../../assets/financial-graph.png';
 import Header from '../../components/Header';
 import IFormattedBilling from '../../interfaces/billings/IFormattedBilling';
 import billsToPay from '../../mocks/bills-to-pay';
@@ -12,8 +15,8 @@ import {
   Container,
   ContactButtonContainer,
   ContactButtonText,
-  TableCard,
-  TableCardTitle,
+  InfoCard,
+  InfoCardTitle,
 } from './styles';
 
 const Financial: React.FC = () => {
@@ -39,9 +42,11 @@ const Financial: React.FC = () => {
     <>
       <Header />
 
-      <Container contentContainerStyle={{ paddingBottom: 96 }}>
-        <TableCard>
-          <TableCardTitle>Contas a pagar</TableCardTitle>
+      <Container
+        contentContainerStyle={{ paddingBottom: getStatusBarHeight() + 96 }}
+      >
+        <InfoCard>
+          <InfoCardTitle>Contas a pagar</InfoCardTitle>
 
           <DataTable>
             <DataTable.Header>
@@ -56,10 +61,10 @@ const Financial: React.FC = () => {
               </DataTable.Row>
             ))}
           </DataTable>
-        </TableCard>
+        </InfoCard>
 
-        <TableCard style={{ marginTop: 16 }}>
-          <TableCardTitle>Contas a receber</TableCardTitle>
+        <InfoCard style={{ marginTop: 16 }}>
+          <InfoCardTitle>Contas a receber</InfoCardTitle>
 
           <DataTable>
             <DataTable.Header>
@@ -74,11 +79,16 @@ const Financial: React.FC = () => {
               </DataTable.Row>
             ))}
           </DataTable>
-        </TableCard>
+        </InfoCard>
 
-        <TableCard style={{ marginTop: 16, minHeight: 96 }}>
-          <TableCardTitle>Fluxo de caixa</TableCardTitle>
-        </TableCard>
+        <InfoCard style={{ marginTop: 16 }}>
+          <InfoCardTitle>Fluxo de caixa</InfoCardTitle>
+
+          <Image
+            style={{ width: '100%', height: 200 }}
+            source={fluxoDeCaixaImg}
+          />
+        </InfoCard>
       </Container>
 
       <ContactButtonContainer activeOpacity={0.6}>
