@@ -16,6 +16,7 @@ import * as Yup from 'yup';
 import Logo from '../../assets/logo.png';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+// import SocialButton from '../../components/SocialButton';
 import { useAuth } from '../../hooks/auth';
 import getValidationErrors from '../../utils/getValidationError';
 
@@ -25,6 +26,7 @@ import {
   ForgotPasswordText,
   CreateAccount,
   CreateAccountText,
+  SocialButtonsContainer,
 } from './styles';
 
 const SignIn: React.FC = () => {
@@ -32,7 +34,7 @@ const SignIn: React.FC = () => {
 
   const { navigate } = useNavigation();
 
-  const { signInWithEmailAndPassword } = useAuth();
+  const { signInWithEmailAndPassword /* , signInWithGoogle */ } = useAuth();
 
   const handleSubmit = useCallback(
     async data => {
@@ -115,6 +117,26 @@ const SignIn: React.FC = () => {
           <ForgotPassword onPress={() => navigate('ForgotPassword')}>
             <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
           </ForgotPassword>
+
+          <SocialButtonsContainer>
+            {/* <SocialButton
+              iconType="font-awesome"
+              buttonTitle="Entrar com o Google"
+              btnType="google"
+              color="#de4d41"
+              backgroundColor="#f5e7ea"
+              onPress={() => signInWithGoogle()}
+            />
+
+            <SocialButton
+              iconType="feather"
+              buttonTitle="Entrar com o telefone"
+              btnType="phone"
+              color="#617feb"
+              backgroundColor="#e7eaf5"
+              onPress={() => navigate('PhoneSignIn')}
+            /> */}
+          </SocialButtonsContainer>
         </Container>
 
         <CreateAccount onPress={() => navigate('CreateAccount')}>
