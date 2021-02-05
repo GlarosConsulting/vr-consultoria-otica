@@ -5,12 +5,16 @@ import { ScrollView, View } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { Table, Row } from 'react-native-table-component';
 
+import { useNavigation } from '@react-navigation/native';
+
 import stockPerformanceImg from '../../assets/stock-performance.png';
 import Header from '../../components/Header';
+import { useMaximizedChart } from '../../hooks/maximized-chart';
 import stocksMock from '../../mocks/stocks';
 
 import {
   Container,
+  TouchableInfoCard,
   InfoCard,
   InfoCardTitle,
   ContactButtonContainer,
@@ -18,6 +22,13 @@ import {
 } from './styles';
 
 const Stock: React.FC = () => {
+  const { navigate } = useNavigation();
+
+  const {
+    setMaximizedChartContent,
+    navigateToMaximizedChart,
+  } = useMaximizedChart();
+
   const stocksTableCellsWidth = useMemo(() => [80, 96, 96, 96, 96], []);
 
   return (
@@ -85,7 +96,27 @@ const Stock: React.FC = () => {
           </ScrollView>
         </InfoCard>
 
-        <InfoCard
+        <TouchableInfoCard
+          activeOpacity={0.7}
+          onPress={() => {
+            setMaximizedChartContent(
+              <InfoCard
+                style={{
+                  marginTop: 16,
+                  height: '100%',
+                }}
+              >
+                <InfoCardTitle>Fluxo de caixa</InfoCardTitle>
+
+                <Image
+                  style={{ width: '100%', height: 996, resizeMode: 'contain' }}
+                  source={stockPerformanceImg}
+                />
+              </InfoCard>,
+            );
+
+            navigateToMaximizedChart(navigate);
+          }}
           style={{
             marginTop: 16,
           }}
@@ -99,7 +130,7 @@ const Stock: React.FC = () => {
               height: 464,
             }}
           />
-        </InfoCard>
+        </TouchableInfoCard>
       </Container>
 
       <ContactButtonContainer activeOpacity={0.6}>
