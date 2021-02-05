@@ -4,8 +4,11 @@ import { Image } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { DataTable } from 'react-native-paper';
 
+import { useNavigation } from '@react-navigation/native';
+
 import financialChartImg from '../../assets/financial-chart.png';
 import Header from '../../components/Header';
+import { useMaximizedChart } from '../../hooks/maximized-chart';
 import IFormattedBilling from '../../interfaces/billings/IFormattedBilling';
 import billsToPay from '../../mocks/bills-to-pay';
 import billsToReceive from '../../mocks/bills-to-receive';
@@ -17,9 +20,16 @@ import {
   ContactButtonText,
   InfoCard,
   InfoCardTitle,
+  TouchableInfoCard,
 } from './styles';
 
 const Financial: React.FC = () => {
+  const {
+    setMaximizedChartContent,
+    navigateToMaximizedChart,
+  } = useMaximizedChart();
+  const { navigate } = useNavigation();
+
   const formattedBillsToPay: IFormattedBilling[] = useMemo(
     () =>
       billsToPay.map<IFormattedBilling>(bill => ({
@@ -81,14 +91,38 @@ const Financial: React.FC = () => {
           </DataTable>
         </InfoCard>
 
-        <InfoCard style={{ marginTop: 16 }}>
+        <TouchableInfoCard
+          activeOpacity={0.7}
+          onPress={() => {
+            setMaximizedChartContent(
+              <InfoCard
+                style={{
+                  marginTop: 16,
+                  height: '100%',
+                }}
+              >
+                <InfoCardTitle>Fluxo de caixa</InfoCardTitle>
+
+                <Image
+                  style={{ width: '100%', height: 448, resizeMode: 'stretch' }}
+                  source={financialChartImg}
+                />
+              </InfoCard>,
+            );
+
+            navigateToMaximizedChart(navigate);
+          }}
+          style={{
+            marginTop: 16,
+          }}
+        >
           <InfoCardTitle>Fluxo de caixa</InfoCardTitle>
 
           <Image
             style={{ width: '100%', height: 200 }}
             source={financialChartImg}
           />
-        </InfoCard>
+        </TouchableInfoCard>
       </Container>
 
       <ContactButtonContainer activeOpacity={0.6}>

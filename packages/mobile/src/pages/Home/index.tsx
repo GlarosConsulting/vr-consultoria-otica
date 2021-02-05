@@ -46,7 +46,7 @@ const Home: React.FC = () => {
                 <InfoCardTitle>Fluxo de caixa</InfoCardTitle>
 
                 <Image
-                  style={{ width: '50%', height: 200 }}
+                  style={{ width: '100%', height: 448, resizeMode: 'stretch' }}
                   source={financialChartImg}
                 />
               </InfoCard>,
@@ -81,7 +81,7 @@ const Home: React.FC = () => {
                 </InfoCardTitle>
 
                 <Image
-                  style={{ width: '100%', height: 132 }}
+                  style={{ width: '100%', height: 288, resizeMode: 'stretch' }}
                   source={salesBySellerImg}
                 />
               </InfoCard>,

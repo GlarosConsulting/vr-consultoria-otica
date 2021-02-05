@@ -8,6 +8,16 @@ export const Container = styled.ScrollView`
   padding: 16px;
 `;
 
+export const TouchableInfoCard = styled.TouchableOpacity`
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+
+  width: 100%;
+
+  align-items: center;
+`;
+
 export const InfoCard = styled.View`
   background: #fff;
   padding: 16px;
