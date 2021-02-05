@@ -40,13 +40,13 @@ const Home: React.FC = () => {
               <InfoCard
                 style={{
                   marginTop: 16,
-                  minHeight: 196,
+                  height: '100%',
                 }}
               >
                 <InfoCardTitle>Fluxo de caixa</InfoCardTitle>
 
                 <Image
-                  style={{ width: '100%', height: 200, marginTop: 22 }}
+                  style={{ width: '100%', height: 448, resizeMode: 'stretch' }}
                   source={financialChartImg}
                 />
               </InfoCard>,
@@ -66,7 +66,29 @@ const Home: React.FC = () => {
           />
         </TouchableInfoCard>
 
-        <InfoCard
+        <TouchableInfoCard
+          activeOpacity={0.7}
+          onPress={() => {
+            setMaximizedChartContent(
+              <InfoCard
+                style={{
+                  marginTop: 16,
+                  height: '100%',
+                }}
+              >
+                <InfoCardTitle>
+                  Performance de vendas por vendedor
+                </InfoCardTitle>
+
+                <Image
+                  style={{ width: '100%', height: 288, resizeMode: 'stretch' }}
+                  source={salesBySellerImg}
+                />
+              </InfoCard>,
+            );
+
+            navigateToMaximizedChart(navigate);
+          }}
           style={{
             marginTop: 16,
           }}
@@ -77,7 +99,7 @@ const Home: React.FC = () => {
             style={{ width: '100%', height: 132 }}
             source={salesBySellerImg}
           />
-        </InfoCard>
+        </TouchableInfoCard>
       </Container>
 
       <ContactButtonContainer activeOpacity={0.6}>

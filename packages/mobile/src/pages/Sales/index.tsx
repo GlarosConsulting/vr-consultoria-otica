@@ -4,8 +4,11 @@ import { Image } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { DataTable } from 'react-native-paper';
 
+import { useNavigation } from '@react-navigation/native';
+
 import salesBySellerImg from '../../assets/sales-by-seller.png';
 import Header from '../../components/Header';
+import { useMaximizedChart } from '../../hooks/maximized-chart';
 import IFormattedBilling from '../../interfaces/billings/IFormattedBilling';
 import IFormattedComissionBySeller from '../../interfaces/sales/IFormattedComissionBySeller';
 import comissionBySellersMock from '../../mocks/comission-by-sellers';
@@ -18,9 +21,17 @@ import {
   ContactButtonText,
   InfoCard,
   InfoCardTitle,
+  TouchableInfoCard,
 } from './styles';
 
 const Financial: React.FC = () => {
+  const { navigate } = useNavigation();
+
+  const {
+    setMaximizedChartContent,
+    navigateToMaximizedChart,
+  } = useMaximizedChart();
+
   const mostSoldProductsFormatted: IFormattedBilling[] = useMemo(
     () =>
       mostSoldProductsMock.map<IFormattedBilling>(bill => ({
@@ -46,17 +57,38 @@ const Financial: React.FC = () => {
       <Container
         contentContainerStyle={{ paddingBottom: getStatusBarHeight() + 96 }}
       >
-        <InfoCard>
+        <TouchableInfoCard
+          activeOpacity={0.7}
+          onPress={() => {
+            setMaximizedChartContent(
+              <InfoCard
+                style={{
+                  marginTop: 16,
+                  height: '100%',
+                }}
+              >
+                <InfoCardTitle>Vendas por vendedor</InfoCardTitle>
+
+                <Image
+                  style={{ width: '100%', height: 288, resizeMode: 'stretch' }}
+                  source={salesBySellerImg}
+                />
+              </InfoCard>,
+            );
+
+            navigateToMaximizedChart(navigate);
+          }}
+          style={{
+            marginTop: 16,
+          }}
+        >
           <InfoCardTitle>Vendas por vendedor</InfoCardTitle>
 
           <Image
+            style={{ width: '100%', height: 132 }}
             source={salesBySellerImg}
-            style={{
-              width: '100%',
-              height: 132,
-            }}
           />
-        </InfoCard>
+        </TouchableInfoCard>
 
         <InfoCard style={{ marginTop: 16 }}>
           <InfoCardTitle>Produtos mais vendidos</InfoCardTitle>

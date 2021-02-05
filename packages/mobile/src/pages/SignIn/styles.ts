@@ -50,3 +50,7 @@ export const CreateAccountText = styled.Text`
   font-size: 18px;
   margin-left: 16px;
 `;
+
+export const SocialButtonsContainer = styled.View`
+  margin-top: 24px;
+`;
